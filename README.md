@@ -2,10 +2,7 @@
 
 This is a desktop only implementation of [Adobe XD MARSHMELLO Website Design - Speed Art](https://www.youtube.com/watch?v=cledbID5j1o) by [Caler Edwards](https://www.youtube.com/channel/UCfzOLBT7jyHFcaTgwmnttog)
 
-## Known issues
-
-* Back navigation throws error from index 4 → index 3
-* No responsive design at all
+*This is not developed to be responsive*
 
 ## Hosted version
 [https://marcvleeuwen.github.io/concept-web-marshmello](https://marcvleeuwen.github.io/concept-web-marshmello/)
