@@ -11,7 +11,7 @@
     <link href="assets/Bubblegum.ttf" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
-    <title>Marshmello</title>
+    <title>Marshmello - Concept design implementation</title>
 </head>
 <body onload="init()">
 <!-- static positions -->
@@ -19,7 +19,8 @@
     <div class="title navbar-brand">marshmello</div>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link text-white" href="https://marshmellomusic.com/shows">on tour</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="https://marshmellomusic.com/shows">on tour</a>
+            </li>
             <li class="nav-item"><a class="nav-link text-white" href="https://marshmellomusic.com/media">media</a></li>
             <li class="nav-item"><a class="nav-link text-white" href="https://mellogang.com/">shop</a></li>
         </ul>
@@ -27,14 +28,14 @@
 </nav>
 <div class="overlay">
     <div class="buttons">
-        <button class="btn btn-dark btn-outline-light btn-nav mr-2" id="btn-prev" onclick="navClicked('b')"><i
+        <button class="btn btn-dark btn-outline-light btn-nav mr-2" id="btn-prev" onclick="goPrevSlide()"><i
                 class="fas fa-arrow-left"></i></button>
-        <button class="btn btn-dark btn-outline-light btn-nav" id="btn-next" onclick="navClicked('f')"><i
+        <button class="btn btn-dark btn-outline-light btn-nav" id="btn-next" onclick="goNextSlide()"><i
                 class="fas fa-arrow-right"></i></button>
     </div>
 </div>
 <div class="marshmello-dude">
-    <img alt="marshmello" height="639" src="assets/dude.png" width="417.75">
+    <img alt="dj marshmello" height="639" src="assets/dude.png" width="417.75">
 </div>
 <div class="social">
     <a class="text-white" href="https://music.apple.com/us/artist/marshmello/980795202" target="_blank"><i
@@ -47,89 +48,8 @@
             class="social-icon fab fa-youtube"></i></a>
 </div>
 <!-- end static positions -->
-<div class="pages">
-    <section class="page page-happier px-3 py-3 page-active" id="page-happier">
-        <img alt="happier background" src="assets/bg-happier.jpg">
-        <div class="video-section">
-            <div class="video">
-                <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                        frameborder="0" height="315"
-                        src="https://www.youtube.com/embed/QGtPHnCBH3w"
-                        width="560"></iframe>
-            </div>
-            <div class="video-details text-uppercase">
-                <h1 class="title">Happier</h1>
-                <h3 class="subtitle">Mershmello X bastille</h3>
-                <button class="btn btn-listen">listen now</button>
-            </div>
-        </div>
-    </section>
-    <section class="page page-biba px-3 py-3" id="page-biba">
-        <img alt="biba background" src="assets/bg-biba.jpg">
-        <div class="video-section">
-            <div class="video">
-                <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                        frameborder="0" height="315"
-                        src="https://www.youtube.com/embed/7gfhI2FQ55s"
-                        width="560"></iframe>
-            </div>
-            <div class="video-details text-uppercase">
-                <h1 class="title">Biba</h1>
-                <h3 class="subtitle">Marshmello X Pritam</h3>
-                <button class="btn btn-dark btn-listen">listen now</button>
-            </div>
-        </div>
-    </section>
-    <section class="page page-everyday px-3 py-3" id="page-everyday">
-        <img alt="everyday background" src="assets/bg-everyday.jpg">
-        <div class="video-section">
-            <div class="video">
-                <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                        frameborder="0" height="315"
-                        src="https://www.youtube.com/embed/UCdMwyIy3ks"
-                        width="560"></iframe>
-            </div>
-            <div class="video-details text-uppercase">
-                <h1 class="title">Everyday</h1>
-                <h3 class="subtitle">Marshmello X Logic</h3>
-                <button class="btn btn-dark btn-listen">listen now</button>
-            </div>
-        </div>
-    </section>
-    <section class="page page-alone px-3 py-3" id="page-alone">
-        <img alt="alone background" src="assets/bg-alone.jpg">
-        <div class="video-section">
-            <div class="video">
-                <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                        frameborder="0" height="315"
-                        src="https://www.youtube.com/embed/ALZHF5UqnU4"
-                        width="560"></iframe>
-            </div>
-            <div class="video-details text-uppercase">
-                <h1 class="title">Alone</h1>
-                <h3 class="subtitle">Marshmello</h3>
-                <button class="btn btn-dark btn-listen">listen now</button>
-            </div>
-        </div>
-    </section>
-
-    <!--  this is to allow the last page to have a preview of the first page  -->
-    <section class="page page-happier px-3 py-3">
-        <img alt="" src="assets/bg-happier.jpg">
-        <div class="video-section">
-            <div class="video">
-                <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                        frameborder="0" height="315"
-                        src="https://www.youtube.com/embed/QGtPHnCBH3w"
-                        width="560"></iframe>
-            </div>
-            <div class="video-details text-uppercase">
-                <h1 class="title">Happier</h1>
-                <h3 class="subtitle">Mershmello X bastille</h3>
-                <button class="btn btn-listen">listen now</button>
-            </div>
-        </div>
-    </section>
+<div class="pages" id="page-container">
+    <!--  Dynamically generated content here  -->
 </div>
 
 <script crossorigin="anonymous"
