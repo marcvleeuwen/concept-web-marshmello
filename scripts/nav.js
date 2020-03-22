@@ -98,7 +98,9 @@ function goNextSlide() {
         el.parentNode.removeChild(el);
 
         // insert the the new 'hiddenSlide' to the end of the parent
-        document.getElementById('page-container').innerHTML += tempSlide.el;
+        const newSlide = document.createElement("section");
+        newSlide.innerHTML = tempSlide.el;
+        document.getElementById("page-container").insertAdjacentHTML("beforeend", tempSlide.el);
 
         // reassign the relative indexes
         prevIndex = activeIndex;
