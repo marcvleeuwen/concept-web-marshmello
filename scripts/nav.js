@@ -154,7 +154,6 @@ function goPrevSlide() {
 
         document.getElementById('btn-next').toggleAttribute('disabled');
         document.getElementById('btn-prev').toggleAttribute('disabled');
-        console.log('activeIndex', activeIndex);
     }, 750);
 }
 
